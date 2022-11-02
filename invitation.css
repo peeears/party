@@ -1,0 +1,37 @@
+@font-face {
+  font-family: Bespoke;
+  src: url(assets/Bespoke-113.otf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Bespoke;
+  font-size: 1.5;
+  line-height: 180%;
+  overflow: hidden;
+}
+
+.invite {
+  color: steelblue;
+}
+
+.party {
+  color: hotpink;
+}
+
+.deg {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  width: 100vh;
+  transform: translate(50%, -50%) rotate(90deg);
+  -webkit-transform: translate(50%, -50%) rotate(90deg);
+  -moz-transform: translate(50%, -50%) rotate(90deg);
+  -o-transform: translate(50%, -50%) rotate(90deg);
+  -ms-transform: translate(50%, -50%) rotate(90deg);
+}

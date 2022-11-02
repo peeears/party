@@ -1,0 +1,63 @@
+@font-face {
+  font-family: Bespoke;
+  src: url(assets/Bespoke-113.otf);
+}
+
+body {
+}
+
+span {
+  text-align: center;
+  width: 100%;
+  -webkit-text-stroke: 1px;
+  letter-spacing: 1.5px;
+  display: block;
+}
+
+.container {
+  font-family: Bespoke;
+  display: flex;
+  font-size: 1.2;
+  line-height: 180%;
+  width: 100vw;
+  /* text-align: center; */
+}
+
+li {
+  list-style-type: circle;
+}
+a {
+  text-decoration: none;
+}
+
+mark {
+  background-color: skyblue;
+  color: hotpink;
+}
+
+.capacities {
+  padding: 30px;
+  outline: 5px dotted hotpink;
+  outline-offset: -2.5px;
+  border-radius: 250px;
+  height: 100vh;
+  flex-basis: calc(100vw / 3);
+}
+
+.inspirations {
+  padding: 30px;
+  outline: 5px dotted skyblue;
+  outline-offset: -2.5px;
+  border-radius: 250px;
+  height: 100vh;
+  flex-basis: calc(100vw / 3);
+}
+
+.ideas {
+  padding: 30px;
+  outline: 5px dotted purple;
+  outline-offset: -2.5px;
+  border-radius: 250px;
+  height: 100vh;
+  flex-basis: calc(100vw / 3);
+}
