@@ -13,6 +13,63 @@ body {
   font-size: 1.5;
   line-height: 180%;
   overflow: hidden;
+  /* background-color: lightpink; */
+}
+
+/* html {
+  .basket(#335, #dde, #aab, 40px);
+}
+
+.basket(@background, @to-right, @to-left, @size:25px) {
+  background: linear-gradient(
+      45deg,
+      @to-right 12%,
+      transparent 0,
+      transparent 88%,
+      @to-right 0
+    ),
+    linear-gradient(
+      135deg,
+      transparent 37%,
+      @to-left 0,
+      @to-left 63%,
+      transparent 0
+    ),
+    linear-gradient(
+      45deg,
+      transparent 37%,
+      @to-right 0,
+      @to-right 63%,
+      transparent 0
+    ),
+    @background;
+  background-size: @size @size;
+} */
+
+iframe {
+  display: flex;
+  /* align-items: center;
+  justify-content: center; */
+  /* top: 25vh; */
+  /* left: 25vw; */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  overflow: hidden;
+}
+
+a {
+  /* outline: 1px solid black; */
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  background-color: hotpink;
+  color: white;
+  border-radius: 50pt;
+  z-index: 100;
 }
 
 .invite {
@@ -21,6 +78,18 @@ body {
 
 .party {
   color: hotpink;
+  /* background-color: lightpink; */
+  background-blend-mode: multiply;
+}
+
+.container {
+  pointer-events: none;
+}
+
+.normal {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .deg {

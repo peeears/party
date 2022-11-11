@@ -1,0 +1,98 @@
+@font-face {
+  font-family: Bespoke;
+  src: url(assets/Bespoke-113.otf);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: floralwhite;
+  text-align: center;
+  font-size: 2em;
+  /* font-family: "Cinzel", serif; */
+  /* font-family: Bespoke; */
+}
+
+h1 {
+  line-height: 1.3em;
+  /* display: flex; */
+  position: absolate;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  /* left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); */
+}
+
+img {
+  margin-bottom: 1.5em;
+}
+
+.my-fun-class {
+  width: 50%;
+  border: 2px solid lightgrey;
+  /* display: block; */
+  margin: auto;
+  font-size: 0.8em;
+  border-radius: 15px;
+}
+
+.my-fun-class .vanillajs-table-data td:first-of-type {
+  display: none;
+}
+
+.remove-Time {
+  display: none;
+}
+
+.vanillajs-table-header td:first-of-type {
+  display: none;
+}
+
+.vanillajs-table td {
+  box-sizing: border-box;
+  width: 400px !important;
+  text-align: left;
+  text-align: left;
+  padding: 10px;
+}
+
+/* looptext */
+
+.marquee {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+.marquee .inner {
+  position: relative;
+  width: 100%;
+  display: flex;
+  color: pink;
+  font-size: 2rem;
+}
+.marquee .inner > * {
+  white-space: nowrap;
+  padding: 0 4rem;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+
+  h1 {
+    font-size: 1em;
+  }
+}
