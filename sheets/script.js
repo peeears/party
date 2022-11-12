@@ -2,7 +2,7 @@ console.log("ready!");
 
 function init() {
   Papa.parse(
-    "https://docs.google.com/spreadsheets/d/e/2PACX-1vTKDEuGcPxpG4KaXoW8Po5KB8YWFGE-K51NtEpThYBsu97MBhlYWhhtIS2LoFrwfgPWV7OW1eG8Cavr/pub?output=csv",
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vRjrkPPjYxY9iB5gTrJaeLnuV7OkMHXUhMd-1vS-Yjl9tCxIGiHpHxJhYP29Mr9u7ajegAzGb7pp0jT/pub?output=csv",
     {
       download: true,
       header: true,
@@ -10,13 +10,6 @@ function init() {
         var data = results.data;
         console.log(data);
 
-        // Put every timestamp in a div
-        // for (var entry of data) {
-        //   console.log(entry.Timestamp);
-        //   $(".my-fun-class").append("<p>" + entry.Timestamp + "</p>");
-        // }
-
-        // Put every response to the invitation question in a div
         for (var entry of data) {
           //note that it's not as simple to address this value becuase the name of it is not very machine readable, unlike "Timestamp." The name of it is "What ways do you like to invite someone to do something with you?." This can't be used in the same way becuase of all the spaces and punctuation so we need to address it by referring to is as the second key of each object (remember second looks like [1]) for each entry object.
           var invitationResponse = entry[Object.keys(entry)[1]];
@@ -28,8 +21,10 @@ function init() {
           //note that it's not as simple to address this value becuase the name of it is not very machine readable, unlike "Timestamp." The name of it is "What ways do you like to invite someone to do something with you?." This can't be used in the same way becuase of all the spaces and punctuation so we need to address it by referring to is as the second key of each object (remember second looks like [1]) for each entry object.
           var invitationResponse = entry[Object.keys(entry)[2]];
           console.log(invitationResponse);
-          $(".marquee").append(
-            '<div class="inner">' + invitationResponse + "</div>"
+          $(".marquees.material").append(
+            ` <div class="marquee material">
+                  <div class="inner">${invitationResponse} </div>
+              </div>`
           );
           // $(".cnnContents").append(
           //   '<span class="marqueeStyle2">' + invitationResponse + "</span>"
@@ -43,60 +38,61 @@ function init() {
           //note that it's not as simple to address this value becuase the name of it is not very machine readable, unlike "Timestamp." The name of it is "What ways do you like to invite someone to do something with you?." This can't be used in the same way becuase of all the spaces and punctuation so we need to address it by referring to is as the second key of each object (remember second looks like [1]) for each entry object.
           var invitationResponse = entry[Object.keys(entry)[3]];
           console.log(invitationResponse);
-          $(".my-fun-class").append("<p>" + invitationResponse + "</p>");
+          $(".marquees.energy").append(
+            ` <div class="marquee energy">
+                  <div class="inner">${invitationResponse}</div>
+            </div>`
+          );
         }
-        //// This is the original table code that displays the data similar to the way the spreadsheet looks using a table library
-        // var options = {
-        //     element: document.getElementById("table"),
-        //     data: data
-        // };
-        //
-        // var table = new Table(options);
-        // table.view();
+
+        let marqueeMaterialArray =
+          document.querySelectorAll(".marquee.material");
+
+        for (let item of marqueeMaterialArray) {
+          let length = item.children[0].offsetWidth;
+          // console.log(length)
+
+          let count = (window.innerWidth * 1.2) / length + 1;
+          // console.log(count)
+          for (let i = 0; i < count; i++) {
+            item.insertAdjacentHTML("beforeend", item.children[0].outerHTML);
+          }
+
+          let scroll = [{ transform: `translateX(-${length}px)` }];
+
+          let scrollTiming = {
+            duration: length * 50,
+            iterations: Infinity,
+          };
+
+          item.animate(scroll, scrollTiming);
+        }
+
+        let marqueeEnergyArray = document.querySelectorAll(".marquee.energy");
+
+        for (let item of marqueeEnergyArray) {
+          let length = item.children[0].offsetHeight;
+          // console.log(length)
+
+          let count = (window.innerHeight * 1.2) / length + 1;
+          // console.log(count)
+          for (let i = 0; i < count; i++) {
+            item.insertAdjacentHTML("beforeend", item.children[0].outerHTML);
+          }
+
+          let scroll = [{ transform: `translateY(-${length}px)` }];
+
+          let scrollTiming = {
+            duration: length * 50,
+            iterations: Infinity,
+          };
+
+          item.animate(scroll, scrollTiming);
+        }
       },
     }
   );
 }
 
-function handleMarquee() {
-  const marquee = document.querySelectorAll(".marquee");
-  let speed = 4;
-  let lastScrollPos = 0;
-  let timer;
-  marquee.forEach(function (el) {
-    const container = el.querySelector(".inner");
-    const content = el.querySelector(".inner > *");
-    //Get total width
-    const elWidth = content.offsetWidth;
-    //Duplicate content
-    let clone = content.cloneNode(true);
-    container.appendChild(clone);
-    let progress = 1;
-    function loop() {
-      progress = progress - speed;
-      if (progress <= elWidth * -1) {
-        progress = 0;
-      }
-      container.style.transform = "translateX(" + progress + "px)";
-      container.style.transform += "skewX(" + speed * 0.4 + "deg)";
-      window.requestAnimationFrame(loop);
-    }
-    loop();
-  });
-  window.addEventListener("scroll", function () {
-    const maxScrollValue = 12;
-    const newScrollPos = window.scrollY;
-    let scrollValue = newScrollPos - lastScrollPos;
-    if (scrollValue > maxScrollValue) scrollValue = maxScrollValue;
-    else if (scrollValue < -maxScrollValue) scrollValue = -maxScrollValue;
-    speed = scrollValue;
-    clearTimeout(timer);
-    timer = setTimeout(handleSpeedClear, 10);
-  });
-  function handleSpeedClear() {
-    speed = 4;
-  }
-}
-handleMarquee();
-
-window.addEventListener("DOMContentLoaded", init);
+init();
+// window.addEventListener("DOMContentLoaded", init);
