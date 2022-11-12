@@ -61,7 +61,7 @@ function init() {
           let scroll = [{ transform: `translateX(-${length}px)` }];
 
           let scrollTiming = {
-            duration: length * 50,
+            duration: length * 20,
             iterations: Infinity,
           };
 
@@ -83,7 +83,7 @@ function init() {
           let scroll = [{ transform: `translateY(-${length}px)` }];
 
           let scrollTiming = {
-            duration: length * 50,
+            duration: length * 20,
             iterations: Infinity,
           };
 
