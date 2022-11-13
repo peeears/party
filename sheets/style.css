@@ -111,18 +111,22 @@ section.marquees.energy {
 .marquee {
   font-size: 1.2em !important;
   display: flex;
+
   position: relative;
   margin: 0;
   /* overflow: hidden; */
   white-space: nowrap;
 }
 .marquee.material {
+  padding: 8px;
   color: hotpink;
   width: 120vw;
   height: 1em;
 }
+
 .marquee.energy {
   color: skyblue;
+  padding: 8px;
   width: 1em;
   height: 120vh;
 }
